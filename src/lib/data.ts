@@ -38,11 +38,11 @@ export const PORTFOLIO_DATA = {
   experience: [
     {
       company: "Bank of Montreal (BMO)",
-      role: "Anti-Money Laundering Investigator",
-      years: "Mar 2026 - Present",
+      role: "Anti-Money Laundering Investigator Intern",
+      years: "May 2026 - Present",
       logo: "/bmo.png",
-      minimizedInfo: "Incoming AML @ BMO",
-      maximizedInfo: ""
+      minimizedInfo: "Analyzed client and transaction data to support AML, fraud, and financial crime investigations through risk-based reviews and case documentation.",
+      maximizedInfo: "• Analyzed client and transaction data to identify AML, fraud, and financial crime risk indicators\n• Reviewed high-volume transaction patterns and alerts to support AML case investigations\n• Produced case narratives documenting investigation findings, supporting evidence, and risk factors\n• Conducted enhanced due diligence reviews using a risk-based investigative approach\n• Maintained data integrity across case files in line with AML procedures and compliance standards"
     },
     {
       company: "Helios Technology Solutions Inc.",
@@ -50,15 +50,15 @@ export const PORTFOLIO_DATA = {
       years: "May 2025 - Sep 2025",
       logo: "/helios.png",
       minimizedInfo: "Developed a high-performance Python data migration tool and built full-stack Shopify integrations using Remix, deploying scalable solutions to AWS.",
-      maximizedInfo: "• Developed a Python data migration tool processing 300 products/min, 140× faster than competitors\n• Reduced client turnaround time from 15 h to 1 h (approx. 15x) by automating data migration\n• Parsed large datasets using Pandas and optimized GraphQL API queries for high-volume migrations\n• Built and tested full-stack apps with JavaScript, Remix, and Shopify Polaris for app integrations\n• Deployed code on AWS Lambda and RDS, ensuring reliable and scalable performance\n• Implemented and optimized Shopify POS systems for clients, delivering end-to-end setup\n• Worked closely with clients to manage their transition to Shopify and delivered personalized training"
+      maximizedInfo: "• Developed a Python data migration tool processing 300 products/min, 140× faster than competitors\n• Reduced client turnaround time from 15 h to 1 h (approx. 15x) by automating data migration\n• Parsed large datasets using Pandas and optimized GraphQL API queries for high-volume migrations\n• Built and tested full-stack apps with JavaScript, Remix, and Shopify Polaris for app integrations\n• Deployed code on AWS Lambda and RDS, ensuring reliable and scalable performance"
     },
     {
       company: "Users Self Storage and Warehousing",
       role: "I.T. and Business Associate",
       years: "Jun 2021 - Sep 2025",
       logo: "/users-self-storage.png",
-      minimizedInfo: "Designed, implemented, and maintained IT systems and web assets while managing financial tracking and providing ongoing technical support.",
-      maximizedInfo: "• Designed, implemented, and maintained all IT systems from the ground up\n• Developed and managed the company website, ensuring seamless functionality and regular updates\n• Created and maintained financial tracking spreadsheets using Excel and Quickbooks\n• Customer Liaison, including storage unit rentals and inquiries\n• Processed transactions and managed payments efficiently using Square\n• Installed and maintain video surveillance system\n• Performed hands-on building maintenance and repairs"
+      minimizedInfo: "Designed and maintained IT systems, managed web assets, supported financial tracking, and handled customer-facing storage operations.",
+      maximizedInfo: "• Designed, implemented, and maintained all IT systems from the ground up\n• Developed and managed the company website, ensuring seamless functionality and regular updates\n• Created and maintained financial tracking spreadsheets using Excel and Quickbooks\n• Customer Liaison, including storage unit rentals and inquiries"
     },
     {
       company: "Conservation Halton",
