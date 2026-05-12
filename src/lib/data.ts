@@ -85,6 +85,14 @@ export const PORTFOLIO_DATA = {
   ] as Experience[],
   projects: [
     {
+      title: "GitZero",
+      category: "Python CLI / ML Tooling",
+      description: "I built GitZero as a Python CLI that scans repositories for signals consistent with AI-generated or AI-assisted code. It combines git-history analysis, static code signals, explainable scoring, false-positive guards, JSON/CSV exports, and an experimental Random Forest pipeline trained on labeled repositories.",
+      skills: ["Python", "Typer", "Rich", "PyDriller", "Static Analysis", "Testing"],
+      heroImage: "/project/GitZero/mainreport.png",
+      link: "/projects/gitzero"
+    },
+    {
       title: "Credit Risk Analysis",
       category: "Machine Learning",
       description: "I built a credit risk scoring project using the UCI Credit Card dataset, which contains 30,000 customer records with demographic, financial, and repayment history data. The goal was to explore real world credit behavior, uncover patterns in default risk, and build a model that can predict which customers are more likely to default on their next payment.",
