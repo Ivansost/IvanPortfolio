@@ -13,8 +13,8 @@ const skills = [
   "Typer",
   "Rich",
   "PyDriller",
-  "Static Analysis",
   "scikit-learn",
+  "Static Analysis",
   "pytest",
 ];
 
