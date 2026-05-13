@@ -14,6 +14,7 @@ const skills = [
   "Rich",
   "PyDriller",
   "Static Analysis",
+  "scikit-learn",
   "pytest",
 ];
 

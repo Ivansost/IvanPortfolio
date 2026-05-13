@@ -88,7 +88,7 @@ export const PORTFOLIO_DATA = {
       title: "GitZero",
       category: "Python CLI / ML Tooling",
       description: "I built GitZero as a Python CLI that scans repositories for signals consistent with AI-generated or AI-assisted code. It combines git-history analysis, static code signals, explainable scoring, false-positive guards, JSON/CSV exports, and an experimental Random Forest pipeline trained on labeled repositories.",
-      skills: ["Python", "Typer", "Rich", "PyDriller", "Static Analysis", "Testing"],
+      skills: ["Python", "Typer", "Rich", "PyDriller", "Static Analysis", "scikit-learn", "Testing"],
       heroImage: "/project/GitZero/mainreport.png",
       link: "/projects/gitzero"
     },
