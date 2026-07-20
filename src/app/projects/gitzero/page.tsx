@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "GitZero | Ivan Sostaric",
   description:
-    "A Python CLI case study for GitZero, a repository scanner that detects signals consistent with AI-generated or AI-assisted code.",
+    "A Python CLI case study for GitZero, a repository scanner with explainable heuristics and an optional Random Forest model for AI-code signal review.",
 };
 
 const skills = [
@@ -22,12 +22,12 @@ function CaseImage({
   src,
   alt,
   aspect,
-  priority = false,
+  preload = false,
 }: {
   src: string;
   alt: string;
   aspect: string;
-  priority?: boolean;
+  preload?: boolean;
 }) {
   return (
     <figure className="my-10 overflow-hidden rounded-md border border-white/10 bg-[#080808] shadow-2xl shadow-black/40">
@@ -41,7 +41,7 @@ function CaseImage({
           src={src}
           alt={alt}
           fill
-          priority={priority}
+          preload={preload}
           sizes="(max-width: 768px) 100vw, 768px"
           className="object-contain"
         />
@@ -86,14 +86,14 @@ export default function GitZeroCaseStudy() {
           </div>
 
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
-            I built GitZero as a Python command-line tool that scans repositories for signals consistent with AI-generated or AI-assisted code. It combines git-history analysis, static code analysis, explainable scoring, and an experimental machine-learning pipeline so the output is more useful than a simple yes-or-no result.
+            I built GitZero as a Python command-line tool that scans local folders or public GitHub repositories for signals consistent with AI-generated or AI-assisted code. It combines deterministic heuristics, git-history analysis, static source-code signals, false-positive guards, and an optional calibrated Random Forest model so the output is explainable instead of a simple yes-or-no result.
           </p>
 
           <CaseImage
             src="/project/GitZero/mainreport.png"
             alt="GitZero Rich terminal report showing scan summary, signal map, and top findings"
             aspect="aspect-[5760/2784]"
-            priority
+            preload
           />
         </header>
 
@@ -104,8 +104,23 @@ export default function GitZeroCaseStudy() {
           </p>
 
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
-            I wanted the tool to work well in a normal developer workflow. The terminal report needed to be readable, the scoring needed to explain itself, and the results needed to be exportable for deeper analysis. That led to three main outputs: a Rich report for interactive review, JSON for automation, and batch exports for comparing many repositories or building labeled datasets.
+            I wanted the tool to work well in a normal developer workflow. It accepts a local folder or public GitHub URL, produces a readable Rich terminal report, and can export machine-readable JSON or batch JSONL/CSV rows for deeper analysis. That made the project both a usable CLI and a data pipeline for evaluating many repositories.
           </p>
+
+          <h2 className="text-2xl font-semibold mt-16 mb-4 text-white">How It Works</h2>
+          <p className="text-neutral-300 leading-relaxed font-sans mb-6">
+            GitZero uses a hybrid detection pipeline. First it loads and filters the repository by building a source-file index and excluding dependencies, generated code, vendored libraries, caches, training artifacts, and framework scaffolding. Then it analyzes two evidence families: repository behavior over time and static patterns in the current source code.
+          </p>
+
+          <p className="text-neutral-300 leading-relaxed font-sans mb-6">
+            Each finding is normalized into a common signal format with a score, supporting details, affected files, and confidence context. The deterministic heuristic produces the primary risk score and band, while the optional Random Forest gives a separate learned probability that acts as a second opinion rather than replacing the explainable result.
+          </p>
+
+          <CaseImage
+            src="/project/GitZero/gitzero-architecture-dark.png"
+            alt="GitZero architecture diagram showing repository loading, signal extraction, heuristic scoring, and optional Random Forest probability"
+            aspect="aspect-[800/1900]"
+          />
 
           <h2 className="text-2xl font-semibold mt-16 mb-4 text-white">Signal Design</h2>
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
@@ -113,7 +128,7 @@ export default function GitZeroCaseStudy() {
           </p>
 
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
-            On the static-analysis side, GitZero looks at the source files directly. It checks naming entropy, docstring density, type annotation coverage, complexity uniformity, structural repetition, debug residue, generic TODOs, shallow tests, dependency usage, and README-to-code alignment. It also supports Jupyter notebooks by extracting code cells from `.ipynb` files before analysis.
+            On the static-analysis side, GitZero looks at the source files directly. It checks naming entropy, docstring density, type annotation coverage, complexity uniformity, structural repetition, debug residue, generic TODOs, shallow test quality, dependency usage, and README-to-code alignment. It also supports Jupyter notebooks by extracting code cells from `.ipynb` files before analysis.
           </p>
 
           <CaseImage
@@ -143,16 +158,16 @@ export default function GitZeroCaseStudy() {
 
           <h2 className="text-2xl font-semibold mt-16 mb-4 text-white">Machine-Learning Pipeline</h2>
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
-            Beyond the heuristic scanner, I added a full ML training pipeline. GitZero can scan a labeled corpus in batch mode, export feature rows to JSONL or CSV, and train an experimental Random Forest model with grouped cross-validation. The baseline evaluation used 129 labeled repositories and reached 0.903 ROC-AUC in ablation testing.
+            Beyond the heuristic scanner, I added a full ML training pipeline. GitZero can scan a labeled corpus in batch mode, export feature rows to JSONL or CSV, and train a calibrated Random Forest model with owner-grouped cross-validation. The current benchmark used 193 labeled repositories and reached 0.968 ROC-AUC without hard-evidence features.
           </p>
 
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
-            The ML model is optional by design. The core CLI still works without it, while the `--ml-model` flag can load a trained joblib artifact and show an experimental probability beside the heuristic score. This keeps GitZero usable as a normal CLI while still leaving room for data-driven scoring experiments.
+            The ML model is optional by design. It trains on raw signal and scan-metadata features rather than GitZero's final risk score, and hard-evidence columns are excluded so the model has to learn subtler repository patterns. A disagreement between the heuristic score and model probability is treated as uncertainty, giving the reviewer a reason to inspect the evidence instead of blindly trusting a number.
           </p>
 
           <h2 className="text-2xl font-semibold mt-16 mb-4 text-white">Implementation Details</h2>
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
-            I built the CLI with Typer for the command interface and Rich for the terminal report. PyDriller and GitPython support repository loading and git-history extraction, while radon helps with source-code complexity metrics. The project is packaged with `pyproject.toml`, exposes the `gitzero` command, and is split into typed Python modules for scoring, models, report rendering, repository loading, static signals, git signals, evaluation, fixtures, and ML utilities.
+            I built the CLI with Typer for the command interface and Rich for the terminal report. PyDriller and GitPython support repository loading and git-history extraction, radon helps with source-code complexity metrics, and scikit-learn powers the optional Random Forest workflow. The project is packaged with `pyproject.toml`, exposes the `gitzero` command, and is split into typed Python modules for scoring, models, report rendering, repository loading, static signals, git signals, evaluation, fixtures, and ML utilities.
           </p>
 
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
@@ -171,7 +186,7 @@ export default function GitZeroCaseStudy() {
 
           <h2 className="text-2xl font-semibold mt-16 mb-4 text-white">Testing and Quality</h2>
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
-            I added focused tests across the scoring logic, static-signal extraction, git-signal extraction, evaluation helpers, and ML utilities. The current local suite has 46 tests passing, and the repo is configured with ruff for linting. Testing mattered here because small scoring changes can shift the interpretation of a repository, so the core behavior needed regression coverage.
+            I added focused tests across the scoring logic, static-signal extraction, git-signal extraction, evaluation helpers, and ML utilities. The current project has 50+ tests and is configured with ruff for linting. Testing mattered here because small scoring changes can shift the interpretation of a repository, so the core behavior needed regression coverage.
           </p>
 
           <h2 className="text-2xl font-semibold mt-16 mb-4 text-white">What I Learned</h2>
