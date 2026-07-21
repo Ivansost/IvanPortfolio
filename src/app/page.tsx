@@ -96,8 +96,8 @@ export default function Home() {
             <div className="flex flex-col gap-6 items-center flex-shrink-0 w-[240px]">
               <div className="w-48 h-48 rounded-full border border-white/20 bg-neutral-900 overflow-hidden relative transition-all duration-500">
                 <Image
-                  src="/me.jpg"
-                  alt="Portrait of Ivan Sostaric"
+                  src="/ivan-monitor.png"
+                  alt="Ivan Sostaric working at a computer"
                   fill
                   priority
                   sizes="192px"
