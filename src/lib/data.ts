@@ -54,19 +54,11 @@ export const PORTFOLIO_DATA = {
     },
     {
       company: "Helios Technology Solutions Inc.",
-      role: "Shopify Developer",
-      years: "May 2025 - Sep 2025",
+      role: "Shopify Solutions Engineer Intern",
+      years: "May 2025 - Aug 2025",
       logo: "/helios.png",
       minimizedInfo: "Developed a high-performance Python data migration tool and built full-stack Shopify integrations using Remix, deploying scalable solutions to AWS.",
       maximizedInfo: "• Developed a Python data migration tool processing 300 products/min, 140× faster than competitors\n• Reduced client turnaround time from 15 h to 1 h (approx. 15x) by automating data migration\n• Parsed large datasets using Pandas and optimized GraphQL API queries for high-volume migrations\n• Built and tested full-stack apps with JavaScript, Remix, and Shopify Polaris for app integrations\n• Deployed code on AWS Lambda and RDS, ensuring reliable and scalable performance"
-    },
-    {
-      company: "Users Self Storage and Warehousing",
-      role: "I.T. and Business Associate",
-      years: "Jun 2021 - Sep 2025",
-      logo: "/users-self-storage.png",
-      minimizedInfo: "Designed and maintained IT systems, managed web assets, supported financial tracking, and handled customer-facing storage operations.",
-      maximizedInfo: "• Designed, implemented, and maintained all IT systems from the ground up\n• Developed and managed the company website, ensuring seamless functionality and regular updates\n• Created and maintained financial tracking spreadsheets using Excel and Quickbooks\n• Customer Liaison, including storage unit rentals and inquiries"
     },
     {
       company: "Conservation Halton",
@@ -75,6 +67,14 @@ export const PORTFOLIO_DATA = {
       logo: "/conservation-halton.png",
       minimizedInfo: "Taught snowboarding and skiing to all age groups, focusing on safety, tailored instruction, and clear communication.",
       maximizedInfo: "• Taught new snowboarders and skiers of all ages with a focus on proper techniques and safety.\n• Appropriate communication with individuals of all ages\n• Developed problem-solving, leadership and teamwork skills.\n• Tailored instructions to various skill and knowledge levels."
+    },
+    {
+      company: "Users Self Storage and Warehousing",
+      role: "I.T. and Business Associate",
+      years: "Jun 2022 - Sep 2023",
+      logo: "/users-self-storage.png",
+      minimizedInfo: "Designed and maintained IT systems, managed web assets, supported financial tracking, and handled customer-facing storage operations.",
+      maximizedInfo: "• Designed, implemented, and maintained all IT systems from the ground up\n• Developed and managed the company website, ensuring seamless functionality and regular updates\n• Created and maintained financial tracking spreadsheets using Excel and Quickbooks\n• Customer Liaison, including storage unit rentals and inquiries"
     }
   ] as Experience[],
   volunteering: [] as Experience[],
