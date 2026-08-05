@@ -38,8 +38,16 @@ export const PORTFOLIO_DATA = {
   experience: [
     {
       company: "Bank of Montreal (BMO)",
+      role: "Tech Research Intern",
+      years: "Sep 2026 - Present",
+      logo: "/bmo.png",
+      minimizedInfo: "Incoming Fall 2026.",
+      maximizedInfo: ""
+    },
+    {
+      company: "Bank of Montreal (BMO)",
       role: "Anti-Money Laundering Investigator Intern",
-      years: "May 2026 - Present",
+      years: "May 2026 - Aug 2026",
       logo: "/bmo.png",
       minimizedInfo: "Analyzed client and transaction data to support AML, fraud, and financial crime investigations through risk-based reviews and case documentation.",
       maximizedInfo: "• Analyzed client and transaction data to identify AML, fraud, and financial crime risk indicators\n• Reviewed high-volume transaction patterns and alerts to support AML case investigations\n• Produced case narratives documenting investigation findings, supporting evidence, and risk factors\n• Conducted enhanced due diligence reviews using a risk-based investigative approach\n• Maintained data integrity across case files in line with AML procedures and compliance standards"
