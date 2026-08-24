@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: TOKEN_ATLAS_PATH,
-        destination: `${TOKEN_ATLAS_ORIGIN}${TOKEN_ATLAS_PATH}/`,
+        destination: `${TOKEN_ATLAS_ORIGIN}${TOKEN_ATLAS_PATH}`,
       },
       {
         source: `${TOKEN_ATLAS_PATH}/:path+`,
