@@ -93,6 +93,14 @@ export const PORTFOLIO_DATA = {
   ] as Experience[],
   projects: [
     {
+      title: "Token Atlas",
+      category: "ML Visualization / Full Stack",
+      description: "I built Token Atlas to make next-token generation easier to see. It runs a 494M-parameter open-weight model, maps its 151,665-token vocabulary in 3D, and streams each decision into an interface where candidates, probabilities, attention links, and the completed path can be inspected and replayed.",
+      skills: ["Python", "PyTorch", "FastAPI", "React", "Three.js", "WebSockets", "UMAP", "Docker"],
+      heroImage: "/project/TokenAtlas/token-atlas-overview.jpg",
+      link: "/projects/token-atlas"
+    },
+    {
       title: "GitZero",
       category: "Python CLI / ML Tooling",
       description: "I built GitZero as a Python CLI that scans local folders or public GitHub repositories for signals consistent with AI-generated or AI-assisted code. It combines 25+ git-history and static-code signals, explainable risk scoring, false-positive guards, JSON/CSV exports, and an optional calibrated Random Forest probability.",

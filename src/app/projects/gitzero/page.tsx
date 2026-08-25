@@ -162,7 +162,7 @@ export default function GitZeroCaseStudy() {
           </p>
 
           <p className="text-neutral-300 leading-relaxed font-sans mb-6">
-            The ML model is optional by design. It trains on raw signal and scan-metadata features rather than GitZero's final risk score, and hard-evidence columns are excluded so the model has to learn subtler repository patterns. A disagreement between the heuristic score and model probability is treated as uncertainty, giving the reviewer a reason to inspect the evidence instead of blindly trusting a number.
+            The ML model is optional by design. It trains on raw signal and scan-metadata features rather than GitZero&rsquo;s final risk score, and hard-evidence columns are excluded so the model has to learn subtler repository patterns. A disagreement between the heuristic score and model probability is treated as uncertainty, giving the reviewer a reason to inspect the evidence instead of blindly trusting a number.
           </p>
 
           <h2 className="text-2xl font-semibold mt-16 mb-4 text-white">Implementation Details</h2>
