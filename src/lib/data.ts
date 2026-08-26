@@ -54,7 +54,7 @@ export const PORTFOLIO_DATA = {
     },
     {
       company: "Helios Technology Solutions Inc.",
-      role: "Shopify Solutions Engineer Intern",
+      role: "Solutions Engineer Intern",
       years: "May 2025 - Aug 2025",
       logo: "/helios.png",
       minimizedInfo: "Developed a high-performance Python data migration tool and built full-stack Shopify integrations using Remix, deploying scalable solutions to AWS.",
